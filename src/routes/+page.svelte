@@ -4,7 +4,6 @@
   let shoes = [];
 
   onMount(() => {
-    g;
     fetch(`http://localhost:3000/shoes`)
       .then((response) => response.json())
       .then((result) => {
@@ -58,12 +57,17 @@
         <p class="text-gray-600 mb-2">Release Date: {shoe.release_date}</p>
         <p class="text-gray-600 mb-2">Price: ${shoe.price}</p>
         <p class="text-gray-600 mb-2">Main Color: {shoe.main_color}</p>
-        <a
-          href={shoe.more_info}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500 hover:underline">More Info</a
-        >
+        <div class="">
+          <a href={`/shoes/${shoe.slug}`} class="text-blue-500 hover:underline"
+            >More Info</a
+          >
+          <a
+            href={shoe.more_info}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-500 hover:underline">Buy Now</a
+          >
+        </div>
       </div>
     {/each}
   </div>
